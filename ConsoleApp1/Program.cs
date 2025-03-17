@@ -15,3 +15,16 @@ Console.WriteLine("1. zavantazhennia avtomatu vodoyu, kofiyok, chayok, cukor");
 Console.WriteLine("2.vyvid statystyky nayavnosti skladovyh dla napoyiv");
 Console.WriteLine("3. zmina cin na napoi");
 Console.WriteLine("4.vyluchennia gotivki");
+public class drink
+{
+    public string name { get; set; }
+    public string capacity { get; set; }
+    public string price { get; set; }
+    public int composition { get; set; }
+}
+
+public class admin
+{
+    public string ingredient { get; set; }
+    public double amount { get; set; }
+}
