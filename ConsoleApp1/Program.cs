@@ -18,13 +18,13 @@ Console.WriteLine("4.vyluchennia gotivki");
 public class drink
 {
     public string name { get; set; }
-    public string capacity { get; set; }
-    public string price { get; set; }
-    public int composition { get; set; }
+    public int capacity { get; set; }
+    public float price { get; set; }
+    public string composition { get; set; }
 }
 
 public class admin
 {
     public string ingredient { get; set; }
-    public double amount { get; set; }
+    public int amount { get; set; }
 }
