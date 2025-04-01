@@ -8,23 +8,61 @@
 	Зміна цін на напої
 	Вилучення кешу
 У режимі користувача передбачити*/
-
+Console.WriteLine("------------ Welcome to chayok-kofiyok ------------");
 //Замовлення напою(+ оплата)	
 Console.WriteLine("Hi bitches! Do you want some coffee?");
-Console.WriteLine("1. zavantazhennia avtomatu vodoyu, kofiyok, chayok, cukor");
+Console.WriteLine("1.zavantazhennia avtomatu vodoyu, kofiyok, chayok, cukor");
 Console.WriteLine("2.vyvid statystyky nayavnosti skladovyh dla napoyiv");
-Console.WriteLine("3. zmina cin na napoi");
-Console.WriteLine("4.vyluchennia gotivki");
+Console.WriteLine("3.zmina cin na napoi");
+Console.WriteLine("4.vyluchennia gotivki abo groshikiv z kartochki");
+Console.WriteLine("5.prygotuvaty napiy ");
+
+List<drink> napoyiList = new();
+
+
+while (true)
+{
+    Console.Write("Select menu option: ");
+    int option = int.Parse(Console.ReadLine());
+
+    switch (option)
+    {
+        case 1:
+            foreach (var com in napoyiList)
+            {
+                Console.WriteLine("-------------- napiy -------------");
+                Console.WriteLine($"Name: {com.Name}");
+                Console.WriteLine($"Capacity: {com.Capacity}ml");
+            }
+            break;
+        case 2:
+            var newNapiy = new drink();
+
+            Console.Write("yakiy napiy vy hochete zamovyty? ");
+            newNapiy.Name = Console.ReadLine();
+            Console.Write("vvedit obyem napoyu: ");
+            newNapiy.Capacity = double.Parse(Console.ReadLine());
+
+            napoyiList.Add(newNapiy);
+            break;
+    }
+
+    Console.WriteLine("natysnit dla prodovzhennia...");
+    Console.ReadKey();
+    Console.Clear();
+}
+
+
 public class drink
 {
-    public string name { get; set; }
-    public int capacity { get; set; }
-    public float price { get; set; }
-    public string composition { get; set; }
+    public string Name { get; set; }
+    public double Capacity { get; set; }
+    public float Price { get; set; }
+    public string Composition { get; set; }
 }
 
 public class admin
 {
-    public string ingredient { get; set; }
-    public int amount { get; set; }
+    public string Ingredient { get; set; }
+    public int Amount { get; set; }
 }
