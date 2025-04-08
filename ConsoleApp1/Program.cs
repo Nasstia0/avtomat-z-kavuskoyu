@@ -57,12 +57,12 @@ public class drink
 {
     public string Name { get; set; }
     public double Capacity { get; set; }
-    public float Price { get; set; }
+    public float Price { get; set; }i76i67i76677889
     public string Composition { get; set; }
 }
 
 public class admin
 {
-    public string Ingredient { get; set; }
+    public string Ingredient { get; set; }7i7i
     public int Amount { get; set; }
-}
+}rtfjfuftfr
