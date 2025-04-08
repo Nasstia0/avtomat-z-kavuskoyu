@@ -8,6 +8,8 @@
 	Зміна цін на напої
 	Вилучення кешу
 У режимі користувача передбачити*/
+using System.Text.Json;
+
 Console.WriteLine("------------ Welcome to chayok-kofiyok ------------");
 //Замовлення напою(+ оплата)	
 Console.WriteLine("Hi bitches! Do you want some coffee?");
@@ -16,6 +18,9 @@ Console.WriteLine("2.vyvid statystyky nayavnosti skladovyh dla napoyiv");
 Console.WriteLine("3.zmina cin na napoi");
 Console.WriteLine("4.vyluchennia gotivki abo groshikiv z kartochki");
 Console.WriteLine("5.prygotuvaty napiy ");
+Console.WriteLine("6.zberegty v fayl");
+Console.WriteLine("7.zagruzyty w fayl");
+
 
 List<drink> napoyiList = new();
 
@@ -45,7 +50,16 @@ while (true)
 
             napoyiList.Add(newNapiy);
             break;
-    }
+        case 6:
+            string napoyiJsonRead = File.ReadAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/napoyi.json");
+            napoyiList = JsonSerializer.Deserialize<List<drink>>(napoyiJsonRead);
+            break;
+        case 7:
+            string napoyiJsonWrite = JsonSerializer.Serialize(napoyiList);
+            File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/napoyi.json", napoyiJsonWrite);
+            break;
+    
+}
 
     Console.WriteLine("natysnit dla prodovzhennia...");
     Console.ReadKey();
@@ -57,12 +71,12 @@ public class drink
 {
     public string Name { get; set; }
     public double Capacity { get; set; }
-    public float Price { get; set; }i76i67i76677889
+    public float Price { get; set; }
     public string Composition { get; set; }
 }
 
 public class admin
 {
-    public string Ingredient { get; set; }7i7i
+    public string Ingredient { get; set; }
     public int Amount { get; set; }
-}rtfjfuftfr
+}
