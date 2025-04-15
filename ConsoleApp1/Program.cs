@@ -20,7 +20,7 @@ Console.WriteLine("4.vyluchennia gotivki abo groshikiv z kartochki");
 Console.WriteLine("5.prygotuvaty napiy ");
 Console.WriteLine("6.zberegty v fayl");
 Console.WriteLine("7.zagruzyty w fayl");
-
+Console.WriteLine("8.vydalennia napyiv z avtomatu");
 
 List<drink> napoyiList = new();
 
@@ -40,7 +40,7 @@ while (true)
                 Console.WriteLine($"Capacity: {com.Capacity}ml");
             }
             break;
-        case 2:
+        case 5:
             var newNapiy = new drink();
 
             Console.Write("yakiy napiy vy hochete zamovyty? ");
@@ -58,8 +58,18 @@ while (true)
             string napoyiJsonWrite = JsonSerializer.Serialize(napoyiList);
             File.WriteAllText($"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}/napoyi.json", napoyiJsonWrite);
             break;
-    
-}
+        case 8:
+            Console.WriteLine("vvedit napiy, yakiy hochete vydalyty: ");
+            string nameToDelete = Console.ReadLine();
+
+            var itemToDelete = napoyiList.Find(x => x.Name == nameToDelete);
+            if (itemToDelete == null)
+            {
+            }
+
+            break;
+
+    }
 
     Console.WriteLine("natysnit dla prodovzhennia...");
     Console.ReadKey();
